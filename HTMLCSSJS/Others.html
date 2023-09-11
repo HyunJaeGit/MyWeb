@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Others</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <style>
+        body {
+            width: 1400px;
+        }
+
+        header {
+            position: fixed;
+            /* 고정된 위치로 설정 */
+            top: 0;
+            left: 160px;
+            /* 화면 상단에 위치 */
+            width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            margin-bottom: 10px;
+            z-index: 100;
+        }
+        .img-filter {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 98%;
+            margin: 10px auto;
+        }
+        .img-filter > button {
+            border: none;
+            background-color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        main {
+            margin-top: 270px;
+        }
+
+        article {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* 자동으로 열 생성 및 최소/최대 너비 설정 */
+            gap: 10px;
+            /* 그리드 간격 설정 */
+
+        }
+
+        article div {
+            box-sizing: border-box;
+            background-color: rgb(249, 249, 238);
+            width: 320px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            align-items: top;
+            justify-content: center;
+
+        }
+
+        div>img {
+            box-sizing: border-box;
+            width: 320px;
+            height: 400px;
+            cursor: pointer;
+        }
+        div > img:hover {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- 좌측상단 메뉴 -->
+            <div class="left-menu">
+                <div><a href="Intro.html">Intro</a></div>
+                <div><a href="Project.html">ProjectList</a></div>
+                <div><a href="Repository.html">Repository</a></div>
+            </div>
+            <!-- 메인로고 -->
+            <div class="mainlogo">
+                <a href="MainPage.html">
+                    <div id="logo1">KWON HYUN JAE</div>
+                    <div id="logo2">PORTFOLIO</div>
+                </a>
+            </div>
+            <!-- 우측상단메뉴 -->
+            <div class="right-menu">
+                <div><a href="Side-project.html">Side-Project</a></div>
+                <div><a href="Others.html">Others</a></div>
+                <div class="search">
+                    <input type="text" placeholder="정보검색">
+                    <button>검색</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="img-filter">
+            <button>색상</button>
+            <button>필터</button>
+        </div>
+        <article>
+            <div><img src="img/제목 없음.png"></div>
+            <div><img src="img/aa1a.png"></div>
+            <div><img src="img/131218943_3271428679629294_5151149904174198542_n.jpg"></div>
+            <div><img src="img/29597264_1735705039826831_8589911658006247702_n.jpg"></div>
+            <div><img src="img/36329344_1835679459829388_2484695480462737408_n.jpg"></div>
+            <div><img src="img/제목 없음.png"></div>
+            <div><img src="img/charactor.png"></div>
+            <div><img src="img/java.png"></div>
+            <div><img src="img/49342063_1801912976580879_3450538564821975040_n.jpg"></div>
+        </article>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <button id="scroll-to-top">
+        <img src="img/11.png">
+        <div>TOP</div>
+    </button>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

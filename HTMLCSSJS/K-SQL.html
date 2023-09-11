@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-SQL DB매니저</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /*-------------- 페이지 설정 ------------ */
+        body {
+            width: 1400px;
+            margin: 0 auto;
+        }
+        main {
+            border-radius: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /*-------------- 상단메뉴 ------------ */
+        .Bar-sector {
+            width: 100%;
+            height: 120px;
+            background-color: aqua;
+        }
+        .menubar button {
+            background-color: #3498db; /* 기본 배경색 */
+            color: #fff; /* 글자색 */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+        }
+        .menubar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+        }
+        .menubar table {
+            padding: 0;
+            background-color: aliceblue;
+        }
+        .mainlogo {
+            background-color: aliceblue;
+            border-radius: 10px;
+            width: 170px;
+            height: 20px;
+            padding: 3px 0;
+            font-size: 40%;
+            margin: 5px;
+        }
+        .Bar-sector button {
+            width: 150px;
+            height: 30px;
+            padding: 3px 0;
+            background-color: slategray;
+            border-radius: 20px;
+            margin: 5px;
+        }
+        /*-------------- 메인 입력창 ------------ */
+        .Main-sector {
+            width: 100%;
+            height: 500px;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: row;
+
+
+        }
+        /* 네비게이터 */
+        .navigator {
+            background-color: aquamarine;
+            width: 200px;
+            height: 500px;
+        }
+        .input-sql {
+            background-color: salmon;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* 입력창*/
+        .input-sql > textarea {
+            width: 900px;
+            height: 440px;
+        }
+        .toolbar{
+            padding: 20px;
+        }
+        
+        /*-------------- 하단 출력창 ------------ */
+        .Output-sector {
+            width: 100%;
+            height: 500px;
+            background-color: burlywood;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+        .output {
+            width: 100%;
+            background-color: blueviolet;
+            display: flex;
+            flex-direction: row;
+        }
+        .sponser {
+            background-color: rgb(189, 119, 27);
+            width: 200px;
+        }
+        .out-result {
+            width: 700px;
+            background-color: red;
+            margin: 10px 30px;
+        }
+        .out-sql {
+            padding: 20px   ;
+            max-height: 100%;
+            width: 600px;
+            background-color: chartreuse;
+        }
+        .out-sql p {
+            background-color: antiquewhite;
+        }
+        .out-sql pre {
+            background-color: white;
+            height: 300px;
+            white-space: pre-wrap; /* 줄 바꿈 활성화 */
+            overflow-y: auto;
+        }
+
+
+        /* ------- 테두리 둥글게-------- */
+        .Bar-sector {
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-sizing: border-box;
+        }
+        .Output-sector {
+        padding: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-sizing: border-box;
+        }
+        textarea, pre {
+            padding: 15px;
+            border-radius: 20px;
+            font: normal bold 18px "명조체";
+        }
+
+    </style>
+</head>
+<body>
+
+<main>
+    <!-- 페이지 상단 부분 -->
+    <div class="Bar-sector">    
+        <div class="menubar">
+            <table>
+            <tr>
+                <td rowspan="2">
+                <div class="mainlogo">
+                    <a href="MainPage.html">
+                        <div id="logo1">KWON HYUN JAE</div>
+                        <div id="logo2">PORTFOLIO</div>
+                    </a>
+                </div>
+                </td>
+                <td><button>저장</button></td>
+                <td><button>다른저장</button></td>
+                <td><button>불러오기</button></td>
+                <td><button>도움말</button></td>
+                <td><button>검색</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- "제출(commit)" 버튼 -->
+                    <button id="commit-button">제출(commit)</button>
+                </td>
+                <td><button>전체 제출</button></td>
+                <td><button>되돌리기</button></td>
+                <td><button>글자크기</button></td>
+                <td><button>글자 색 변경</button></td>
+                <td><button>정렬</button></td>
+            </tr>
+            </table>
+        </div>
+    </div>
+    <!-- 페이지 중앙 에디터 부분 -->
+    <div class="Main-sector">
+        
+        <!-- 에디터 좌측 네비게이터 -->
+        <div class="navigator">
+
+        </div>
+
+        <!-- 에디터 -->
+        <div class="editor">
+            <div>
+            </div>
+            <div class="input-sql">
+                <textarea class="edit-area" 
+                placeholder="ex) 생성 테이블 STUDENT; -> CREATE TABLE STUDENT;"></textarea>
+            </div>
+        </div>
+        
+        <!-- 에디터 우측 툴바 -->
+        <div class="toolbar">
+            <button>테이블 생성</button>
+            <button>데이터</button>
+        </div>
+    </div>
+
+    <!-- 페이지 하단 출력 부분 -->
+    <div class="Output-sector">
+
+        <!-- 출력창 -->
+        <div class="output">
+            <div class="sponser"></div>
+            <div class="out-result"></div>
+        </div>
+
+        <!-- SQL구문 변환해서 보여주는 부분 -->
+        <div class="out-sql">
+            <div class="out-sql-buttons">
+                <p>
+                    <!-- 경로 변경 버튼 -->
+                    <button id="change-path-button">경로 변경</button> 
+                    <button id="refresh-button">새로고침</button> 
+                </p>
+            </div>
+            <div class="out-sql-pre">
+                <!-- 변환구문 출력화면 -->
+                <pre id="english-sql"></pre>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+    
+    <!-- 스크롤TOP 퀵버튼 -->
+    <button id="scroll-to-top">
+        <img src="img/11.png">
+        <div>TOP</div>
+    </button>
+
+    <!-- 기본 메인 기능 -->
+    <script src="js/main.js"></script>
+
+    <!-- textarea TAP키 option -->
+    <script>
+    const textareas = document.querySelectorAll("textarea");
+
+    textareas.forEach((textarea) => {
+        textarea.addEventListener("keydown", function (e) {
+            if (e.key === "Tab") { // "Tab" 키를 탭처럼 처리
+                e.preventDefault(); // 기본 탭 동작을 취소
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+
+                // 선택 영역 내의 텍스트를 띄어쓰기와 함께 다시 설정
+                this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+                
+                // 커서 위치 조정
+                this.selectionStart = this.selectionEnd = start + 4;
+            }
+        });
+    });
+    </script>
+
+    <!-- 데이터 출력 -->
+    <script>
+        /* 불러온 데이터 출력 */
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputField = document.querySelector(".input-sql");
+            const sqlOutput = document.querySelector(".Output-sector .sql");
+
+            inputField.addEventListener("change", function () {
+                const inputSQL = inputField.value;
+                if (inputSQL) {
+                    // JSON 파일에서 데이터 불러오기
+                    fetch("output_query.json") // JSON 파일 경로
+                        .then((response) => response.json())
+                        .then((data) => {
+                            // JSON 파일에서 불러온 데이터 사용
+                            sqlOutput.textContent = "영어로 변환된 SQL: " + data.translatedSQL;
+                        })
+                        .catch((error) => {
+                            console.error("데이터를 불러오는 중 오류가 발생했습니다.", error);
+                        });
+                }
+            });
+        });
+
+    </script>
+
+    <!-- output-sql클래스에 영어로 변환된 SQL구문을 출력 -->
+    <script>
+        // 불러온 데이터 출력
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputField = document.querySelector(".input-sql");
+            const sqlOutput = document.querySelector(".Output-sector .out-sql pre");
+    
+            // 사용자 홈 디렉터리 아래 문서 - K-SQL 폴더에 저장한 파일 경로
+            const filePath = "C:/Users/guswo/Documents/K-SQL/output_query.txt";
+
+    
+            // 파일 불러오기
+            fetch(filePath)
+                .then((response) => response.text())
+                .then((data) => {
+                    // 파일 내용을 출력창에 표시
+                    sqlOutput.textContent = data;
+                })
+                .catch((error) => {
+                    console.error("데이터를 불러오는 중 오류가 발생했습니다.", error);
+                });
+        });
+    </script>
+    
+    
+</body>
+</html>

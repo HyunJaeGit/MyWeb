@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KWON HYUN JAE</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/body.css">
+    <style>
+        .mainimg img {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더 메뉴 -->
+    <header>
+        <nav class="navbar">
+            <!-- 좌측상단 메뉴 -->
+            <div class="left-menu">
+                <div><a href="Intro.html">Intro</a></div>
+                <div><a href="Project.html">ProjectList</a></div>
+                <div><a href="Repository.html">Repository</a></div>
+            </div>
+            <!-- 메인로고 -->
+            <div class="mainlogo">
+                <a href="MainPage.html">
+                    <div id="logo1">KWON HYUN JAE</div>
+                    <div id="logo2">PORTFOLIO</div>
+                </a>
+            </div>
+            <!-- 우측상단메뉴 -->
+            <div class="right-menu">
+                <div><a href="Side-project.html">Side-Project</a></div>
+                <div><a href="Others.html">Others</a></div>
+                <div class="search">
+                    <input type="text" placeholder="정보검색">
+                    <button>검색</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <!-- 메인 이미지 -->
+    <main>
+        <article class="mainimg">
+            <div class="slider">
+                <img src="img/aaa.png">
+            </div>
+        </article>
+
+
+    </main>
+
+    <!-- 페이지 하단 footer -->
+    <footer>
+        <div>
+            <p></p>
+            <p id="last-update"></p>
+            <P>WEBSITE BY 권현재</P>
+        </div>
+    </footer>
+
+    <!-- 스크롤TOP 퀵버튼 -->
+    <button id="scroll-to-top">
+        <img src="img/11.png">
+        <div>TOP</div>
+    </button>
+
+    <!-- js/main.js (TOP버튼) -->
+    <script src="js/main.js"></script>
+
+    
+    <script>
+        /*** 문서의 마지막 업데이트 날짜를 설정 */
+        var cur_date = new Date();
+
+        function pad(number) {
+            if (number < 10) {
+                return "0" + number;
+            }
+            return number;
+        }
+
+        var format_date =
+            cur_date.getFullYear() + "." + pad(cur_date.getMonth() + 1)+ "." + pad(cur_date.getDay() + 1);
+
+        document.getElementById("last-update").textContent = "LAST-UPDATE " + format_date;
+    </script>
+
+
+</body>
+
+</html>

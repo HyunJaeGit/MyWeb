@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+
+    <style>
+
+        main {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 800px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        html {
+            height: 100%;
+            background-size: 100% 800px;
+            background-repeat: no-repeat;
+            background-image: url(img/back1_22.png);
+            
+            animation: test 3s linear infinite;
+        }
+        @keyframes test {
+            0%,50%, 100% {
+                background-position: 0 0; /* 초기 위치 (왼쪽 상단) */
+            }
+            25% {
+                background-position: 5px 0; /* 오른쪽으로 5px 이동 */
+            }
+            75% {
+                background-position: -5px 0; /* 왼쪽으로 5px 이동 */
+            }
+        }
+        .art {
+            margin-left: 30px;
+            width: 550px;
+            text-align: left;
+            color: #006600;
+            font: normal bold 70px "나눔손글씨 펜";
+
+        }
+        #art_head {
+            font: normal lighter 60px "나눔손글씨 펜";
+            margin-bottom: 20px;
+        }
+        .art2 {
+
+            width: 580px;
+            font: normal normal 20px "맑은고딕";
+            color: black;
+        }
+        .container2 {
+            background-image: url(img/back2.jpg);
+            background-size: cover; 
+            width: 100%;
+            height: 800px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .skill {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header>
+        <nav class="navbar">
+            <!-- 좌측상단 메뉴 -->
+            <div class="left-menu">
+                <div><a href="Intro.html">Intro</a></div>
+                <div><a href="Project.html">ProjectList</a></div>
+                <div><a href="Repository.html">Repository</a></div>
+            </div>
+            <!-- 메인로고 -->
+            <div class="mainlogo">
+                <a href="MainPage.html">
+                    <div id="logo1">KWON HYUN JAE</div>
+                    <div id="logo2">PORTFOLIO</div>
+                </a>
+            </div>
+            <!-- 우측상단메뉴 -->
+            <div class="right-menu">
+                <div><a href="Side-project.html">Side-Project</a></div>
+                <div><a href="Others.html">Others</a></div>
+                <div class="search">
+                    <input type="text" placeholder="정보검색">
+                    <button>검색</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- Intro : 소개 -->
+        <div class="container" id="intro_part1">
+                <article class="art">
+                    <p id="art_head">About 권현재</p>
+                    <p>돈되는 DB를 COMMIT하는
+                    JAVA 백엔드 개발자</p>
+                </article>
+
+                <article class="art2">
+                    <p>1000만 누적 다운로드 어플을 만들고 싶어서</p>
+                    <p>창업을 준비하던 저는 새로운 취업이라는 사업을 시작했습니다</p>
+                    <p>개발비용 150%절감을 위해 시작했던 개발은</p>
+                    <p>진짜가되어 타인과 함께 할 수 있도록 영역을 넓혀가고 있습니다</p>
+                </article>
+        </div>
+
+        <!-- 기술스택 -->
+        <div class="container2" id="intro_part2">
+            
+            <article class="skill">
+                <p>기술스택</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </article>
+            <article class="skill">
+                <p>기술스택</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- History -->
+        <div id="intro_part3">
+            <article>
+                <div>History</div>
+            </article>
+        </div>
+
+        <!-- 그외의 활동들 -->
+        <div id="intro_part4">
+            others
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <button id="scroll-to-top">
+        <img src="img/11.png">
+        <div>TOP</div>
+    </button>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
