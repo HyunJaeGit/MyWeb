@@ -1,0 +1,28 @@
+
+        /* footer 공통 스타일 */
+        footer {
+            display: flex;
+            justify-content: space-around;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* TOP으로 스크롤하는 버튼 스타일*/
+        #scroll-to-top {
+            border: none;
+            background: none;
+            cursor: pointer;
+            position: fixed;
+            top: 550px;
+            /* 페이지 하단으로부터의 거리 조절 */
+            right: 50px;
+            /* 페이지 우측 중앙으로 위치 조절 */
+            z-index: 998;
+            /* 다른 콘텐츠 위에 표시되도록 설정 */
+        }
+
+        #scroll-to-top>img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }

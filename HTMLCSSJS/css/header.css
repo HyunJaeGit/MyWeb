@@ -1,0 +1,96 @@
+body {
+    width: 1200px;
+    height: 1600px;
+    
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+header {
+    position: fixed; /* 고정된 위치로 설정 */
+    top: 0; /* 화면 상단에 위치 */
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 10px;
+    z-index: 100;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;    
+    font-family: "나눔명조";
+}
+
+.mainlogo {
+    font: normal bold 20px black;
+    padding: 20px 20px;
+    text-align: center;
+    font-family: "나눔명조";
+    word-spacing: -1px;
+}
+
+#logo2 {
+    letter-spacing: 5px;
+    font-size: 16px;
+}
+
+.left-menu  {
+    width: 400px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 20px;
+    font-size: 80%;
+
+}
+
+.right-menu  {
+    width: 400px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px 20px;
+    font-size: 80%;
+
+}
+.left-menu > div, .right-menu > div {
+    width: auto;
+    margin: 0 5px; 
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    height: 25px;
+    font-size: 90%;
+    width: 100px;
+}
+
+button {
+    width: auto;
+
+}
+
+a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.left-menu a:hover, .right-menu a:hover {
+    color: gray;
+    padding: 22px;
+    border: 1px solid black;
+}
